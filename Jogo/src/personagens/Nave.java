@@ -30,8 +30,25 @@ public class Nave {
 	}
 	
 	public void movimentar(){
-		x += dx;
-		y += dy;
+		System.out.println(x+","+y);
+		x += dx;//-1 a 1428
+		y += dy;//2 a 729
+		//colocando os limites da tela
+		if(this.x<-1){
+			x = -1;
+		}
+		
+		if(this.x>1428){
+			x = 1428;
+		}
+		
+		if(this.y<2){
+			y = 2;
+		}
+		
+		if(this.y>729){
+			y = 729;
+		}
 	}
 	
 	public void keyPressed(KeyEvent tecla){

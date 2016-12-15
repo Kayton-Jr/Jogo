@@ -33,7 +33,7 @@ public class Fase extends JPanel implements ActionListener{
 	public void paint(Graphics g){
 		
 		Graphics2D graficos = (Graphics2D) g;//classe filha de grafics
-		graficos.drawImage(fundo, 0, 0, null);//imagem printada, coordenadas x e y,tratamento para a imagem
+		graficos.drawImage(fundo, 0, 0, null);//imagem printada, coordenadas x e y,tratamento para a imagem(observer-modifica o tipo da imagem)
 		graficos.drawImage(nave.getImagem(), nave.getX(), nave.getY(), this);
 		
 		g.dispose();// limpa a tela para a proxima pintura
