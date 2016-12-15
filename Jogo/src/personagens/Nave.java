@@ -11,8 +11,15 @@ public class Nave {
 	private int x, y;
 	private int dx, dy;
 	private Image imagem;
+	private static Nave instance;
 	
-	public Nave(){
+	public static Nave getInstance() {
+		if(instance==null)
+			instance = new Nave();
+		return instance;
+	}
+
+	private Nave(){
 		
 		ImageIcon referencia = new ImageIcon("res\\nave.gif");
 		setImagem(referencia.getImage());
@@ -31,7 +38,7 @@ public class Nave {
 		
 		int codigo = tecla.getKeyCode();
 		
-		if(codigo == KeyEvent.VK_UP);{
+		if(codigo == KeyEvent.VK_UP){
 			dy = -1;
 		}
 		
@@ -39,7 +46,7 @@ public class Nave {
 			dy = 1;
 		}
 		
-		if(codigo == KeyEvent.VK_LEFT);{
+		if(codigo == KeyEvent.VK_LEFT){
 			dx = -1;
 		}
 		
@@ -52,7 +59,7 @@ public class Nave {
 		
 		int codigo = tecla.getKeyCode();
 		
-		if(codigo == KeyEvent.VK_UP);{
+		if(codigo == KeyEvent.VK_UP){
 			dy = 0;
 		}
 		
@@ -60,7 +67,7 @@ public class Nave {
 			dy = 0;
 		}
 		
-		if(codigo == KeyEvent.VK_LEFT);{
+		if(codigo == KeyEvent.VK_LEFT){
 			dx = 0;
 		}
 		
