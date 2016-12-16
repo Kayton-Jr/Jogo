@@ -42,7 +42,7 @@ public class Fase extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		nave.movimentar();
+		nave.movimenta();
 		repaint();//repintar a tela
 	}
 

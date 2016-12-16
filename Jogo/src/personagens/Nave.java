@@ -2,6 +2,8 @@ package personagens;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 
@@ -10,8 +12,10 @@ public class Nave {
 
 	private int x, y;
 	private int dx, dy;
+	private int altura, largura;
 	private Image imagem;
 	private static Nave instance;
+	private List<Missil> misseis;
 	
 	public static Nave getInstance() {
 		if(instance==null)
@@ -24,12 +28,18 @@ public class Nave {
 		ImageIcon referencia = new ImageIcon("res\\nave.gif");
 		setImagem(referencia.getImage());
 		
+		misseis = new ArrayList<Missil>();
+		
 		this.x=100;
 		this.y=100;
 		
 	}
 	
-	public void movimentar(){
+	public void atira(){
+		this.misseis.add(new Missil(x+largura, y+altura/2));
+	}
+
+	public void movimenta(){
 		System.out.println(x+","+y);
 		x += dx;//-1 a 1428
 		y += dy;//2 a 729
@@ -54,6 +64,10 @@ public class Nave {
 	public void keyPressed(KeyEvent tecla){
 		
 		int codigo = tecla.getKeyCode();
+		
+		if(codigo == KeyEvent.VK_SPACE){
+			atira();
+		}
 		
 		if(codigo == KeyEvent.VK_UP){
 			dy = -1;
@@ -94,6 +108,10 @@ public class Nave {
 		
 	}
 
+	public List<Missil> getMisseis() {
+		return misseis;
+	}
+	
 	public int getX() {
 		return x;
 	}
