@@ -12,6 +12,12 @@ public class TecladoAdapter extends KeyAdapter{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+		if(e.getKeyCode() == KeyEvent.VK_ENTER){
+			Fase.isEmJogo=true;
+			ContainerDeJanelas novaJanela = new ContainerDeJanelas();
+			Fase.inicializaInimigos();
+		}
+		
 		nave.keyPressed(e);
 	}
 

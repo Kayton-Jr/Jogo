@@ -12,7 +12,7 @@ public class Inimigo {
 	private Image imagem;
 	private int largura, altura;
 	private boolean visible;
-	private int contador=0;
+	private static int contador=0;
 
 	private static final int LARGURA_TELA = 1500;
 	private static final int VELOCIDADE = 1;//velocidade do missil em pixels
@@ -24,10 +24,10 @@ public class Inimigo {
 		
 		ImageIcon referencia;
 		if(contador++ % 3 ==0){
-			referencia = new ImageIcon("res\\inimigo1.gif");
+			referencia = new ImageIcon("res\\inimigo2.gif");
 		}
 		else{
-			referencia = new ImageIcon("res\\inimigo2.gif");
+			referencia = new ImageIcon("res\\inimigo1.gif");
 		}
 		imagem = referencia.getImage();
 		

@@ -1,5 +1,6 @@
 package janelas;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -24,15 +25,20 @@ public class Fase extends JPanel implements ActionListener{
 	private Timer timer;
 	private boolean emJogo;
 	
-	private List<Inimigo> inimigos;
+	public boolean isEmJogo() {
+		return emJogo;
+	}
+
+	private static List<Inimigo> inimigos;
 	
-	private int[][] coordenadas = { { 2380, 29 }, { 2600, 59 }, { 1380, 89 },
+	private static int[][] coordenadas = { { 2380, 29 }, { 2600, 59 }, { 1380, 89 },
 			{ 780, 109 }, { 580, 139 }, { 880, 239 }, { 790, 259 }, { 760, 50 },
 			{ 790, 150 }, { 1980, 209 }, { 560, 45 }, { 510, 70 }, { 930, 159 },
 			{ 590, 80 }, { 530, 60 }, { 940, 59 }, { 990, 30 }, { 920, 200 },
 			{ 900, 259 }, { 660, 50 }, { 540, 90 }, { 810, 220 }, { 860, 20 },
 			{ 740, 180 }, { 820, 128 }, { 490, 170 }, { 700, 30 }, { 920, 300 },
 			{ 856, 328 }, { 456, 320 } };
+	public static boolean isEmJogo;
 	
 	public Fase(){
 		
@@ -76,6 +82,7 @@ public class Fase extends JPanel implements ActionListener{
 				graficos.drawImage(in.getImagem(), in.getX(), in.getY(), this);
 			}
 			
+			graficos.setColor(Color.white);
 			graficos.drawString("Inimigos: "+ inimigos.size(), 5, 15);
 
 		}
@@ -126,7 +133,7 @@ public class Fase extends JPanel implements ActionListener{
 		repaint();//repintar a tela
 	}
 	
-	public void inicializaInimigos(){
+	public static void inicializaInimigos(){
 		
 		inimigos = new ArrayList<Inimigo>();
 		
