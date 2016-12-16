@@ -1,6 +1,7 @@
 package personagens;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,9 @@ public class Nave {
 	private Image imagem;
 	private static Nave instance;
 	private List<Missil> misseis;
+	private boolean visible;
 	
+
 	public static Nave getInstance() {
 		if(instance==null)
 			instance = new Nave();
@@ -28,6 +31,9 @@ public class Nave {
 		ImageIcon referencia = new ImageIcon("res\\nave.gif");
 		setImagem(referencia.getImage());
 		
+		altura = imagem.getHeight(null);
+		largura = imagem.getWidth(null);
+		
 		misseis = new ArrayList<Missil>();
 		
 		this.x=100;
@@ -37,6 +43,10 @@ public class Nave {
 	
 	public void atira(){
 		this.misseis.add(new Missil(x+largura, y+altura/2));
+	}
+	
+	public Rectangle getBounds(){// padrao de jogos, retorna um retangulo
+		return new Rectangle(x, y, largura, altura);//facilita o controle do retangulo das imagens, tratar colisoes
 	}
 
 	public void movimenta(){
@@ -152,6 +162,13 @@ public class Nave {
 		this.imagem = imagem;
 	}
 	
+	public boolean isVisible() {
+		return visible;
+	}
+	
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
 	
 	
 }

@@ -5,27 +5,34 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
-public class Missil {
+public class Inimigo {
 
 	private int x, y;
 	private int dx, dy;
 	private Image imagem;
 	private int largura, altura;
 	private boolean visible;
-	
+	private int contador=0;
 
 	private static final int LARGURA_TELA = 1500;
-	private static final int VELOCIDADE = 2;//velocidade do missil em pixels
+	private static final int VELOCIDADE = 1;//velocidade do missil em pixels
 	
-	public Missil(int x, int y){
+	public Inimigo(int x, int y){
 		this.x = x;
 		this.y = y;
 		
-		ImageIcon referencia = new ImageIcon("res\\missel(2).png");
+		
+		ImageIcon referencia;
+		if(contador++ % 3 ==0){
+			referencia = new ImageIcon("res\\inimigo1.gif");
+		}
+		else{
+			referencia = new ImageIcon("res\\inimigo2.gif");
+		}
 		imagem = referencia.getImage();
 		
-		this.largura = imagem.getWidth(null);    
-		this.altura = imagem.getHeight(null);
+		this.largura = imagem.getHeight(null);
+		this.altura = imagem.getWidth(null);
 		
 		visible = true;
 	}
@@ -36,9 +43,11 @@ public class Missil {
 	
 	public void movimenta(){
 		
-		this.x += VELOCIDADE;
-		if(this.x > LARGURA_TELA){
-			visible = false;
+		if(this.x < 0){
+			this.x = LARGURA_TELA;
+		}
+		else{
+			this.x -= VELOCIDADE;
 		}
 	}
 	
