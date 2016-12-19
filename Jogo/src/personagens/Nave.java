@@ -18,7 +18,7 @@ public class Nave extends PersonagemPadrao{
 		return instance;
 	}
 
-	public Nave(){
+	private Nave(){
 		super();
 		
 		ImageIcon referencia = new ImageIcon("res\\nave.gif");
@@ -39,7 +39,7 @@ public class Nave extends PersonagemPadrao{
 	}
 
 	public void movimenta(){
-		System.out.println(super.getX()+","+super.getY());
+		//System.out.println(super.getX()+","+super.getY());
 		super.setX(super.getX()+super.getDx());;//1 a 462
 		super.setY(super.getY()+super.getDy());//1 a 340
 		//colocando os limites da tela

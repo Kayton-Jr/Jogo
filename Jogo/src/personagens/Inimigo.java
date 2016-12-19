@@ -7,7 +7,7 @@ public class Inimigo extends PersonagemPadrao{
 	private static int contador=0;
 
 	private static final int LARGURA_TELA = 500;
-	private static float VELOCIDADE = 1;//velocidade do missil em pixels
+	private static int VELOCIDADE = 1;//velocidade do missil em pixels
 	
 	public Inimigo(int x, int y){
 		super();
@@ -37,11 +37,14 @@ public class Inimigo extends PersonagemPadrao{
 			super.setX(LARGURA_TELA);
 		}
 		else{
-			super.setX(super.getX()/*-(int)(VELOCIDADE)*/);
+			System.out.println("antes"+super.getX());
+			super.setX(super.getX()-(VELOCIDADE));
+			System.out.println("dps"+super.getX());
+			System.out.println("velocidade"+VELOCIDADE);
 		}
 	}
 	
-	public static void setVelocidade(){
-		VELOCIDADE = (float)1;
+	public static void aumentaVelocidade(){
+		VELOCIDADE++;
 	}
 }

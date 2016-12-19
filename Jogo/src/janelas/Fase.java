@@ -7,6 +7,8 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,19 +25,14 @@ public class Fase extends JPanel implements ActionListener{
 	private Image fundo;
 	private Nave nave = Nave.getInstance();
 	private Timer timer;
-	private static boolean emJogo;
-	
-	public static boolean isEmJogo() {
-		return emJogo;
-	}
-	
-	public void setEmJogo(boolean boleano){
-		emJogo = boleano;
-	}
+	private boolean emJogo;
+	private boolean passaDeFase = false;
+	private int fase=1;
+	private int score;
 
 	private static List<Inimigo> inimigos = null;
 	
-	private static int[][] coordenadas = { { 2380, 29 }, { 2600, 59 }, { 1380, 89 },
+	private int[][] coordenadas = { { 2380, 29 }, { 2600, 59 }, { 1380, 89 },
 			{ 780, 109 }, { 580, 139 }, { 880, 239 }, { 790, 259 }, { 760, 50 },
 			{ 790, 150 }, { 1980, 209 }, { 560, 45 }, { 510, 70 }, { 930, 159 },
 			{ 590, 80 }, { 530, 60 }, { 940, 59 }, { 990, 30 }, { 920, 200 },
@@ -50,6 +47,8 @@ public class Fase extends JPanel implements ActionListener{
 		addKeyListener(new TecladoAdapter());//pegar o evento e realizar uma açao para ela
 		ImageIcon referencia = new ImageIcon("res\\fundo(3).jpg");
 		fundo = referencia.getImage();
+		
+		//nave = new Nave();
 		
 		emJogo= true;
 		
@@ -87,12 +86,15 @@ public class Fase extends JPanel implements ActionListener{
 			
 			graficos.setColor(Color.white);
 			graficos.drawString("Inimigos: "+ inimigos.size(), 5, 15);
+			graficos.drawString("Fase: "+fase, 5, 30);
 
 		}
 		else{
 			ImageIcon fimJogo = new ImageIcon("res\\game_over.jpg");
 			
 			graficos.drawImage(fimJogo.getImage(), 0, 0, null);
+			graficos.setColor(Color.white);
+			graficos.drawString("Pontuação: "+score, 5, 15);
 		}
 		g.dispose();// limpa a tela para a proxima pintura
 	}
@@ -103,6 +105,8 @@ public class Fase extends JPanel implements ActionListener{
 		
 		if(inimigos.isEmpty()){
 			emJogo = false;
+			passaDeFase = true;
+			fase++;
 		}
 		
 		List<Missil> misseis = nave.getMisseis();
@@ -177,7 +181,7 @@ public class Fase extends JPanel implements ActionListener{
 				formaInimigo = tempInimigo.getBounds();
 				
 				if(formaMissil.intersects(formaInimigo)){
-					
+					score++;
 					tempInimigo.setVisible(false);
 					tempMissil.setVisible(false);
 				}
@@ -185,5 +189,34 @@ public class Fase extends JPanel implements ActionListener{
 			}
 		}
 	}
+	
+	public int getScore() {
+		return score;
+	}
+
+	private class TecladoAdapter extends KeyAdapter {//classe interna: só serve para esse contexto de fase e precisa acessar os atributos dela
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			
+			if(e.getKeyCode() == KeyEvent.VK_ENTER){
+				emJogo = true;
+				if(passaDeFase){
+					Inimigo.aumentaVelocidade();
+					passaDeFase = false;
+				}
+				inicializaInimigos();
+			}
+			
+			nave.keyPressed(e);
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			nave.keyReleased(e);
+		}
+
+	}
+
 
 }
