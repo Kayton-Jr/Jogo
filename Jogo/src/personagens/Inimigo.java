@@ -1,25 +1,19 @@
 package personagens;
 
-import java.awt.Image;
-import java.awt.Rectangle;
-
 import javax.swing.ImageIcon;
 
-public class Inimigo {
+public class Inimigo extends PersonagemPadrao{
 
-	private int x, y;
-	private int dx, dy;
-	private Image imagem;
-	private int largura, altura;
-	private boolean visible;
 	private static int contador=0;
 
-	private static final int LARGURA_TELA = 1500;
-	private static final int VELOCIDADE = 1;//velocidade do missil em pixels
+	private static final int LARGURA_TELA = 500;
+	private static float VELOCIDADE = 1;//velocidade do missil em pixels
 	
 	public Inimigo(int x, int y){
-		this.x = x;
-		this.y = y;
+		super();
+		
+		super.setX(x);
+		super.setY(y);
 		
 		
 		ImageIcon referencia;
@@ -29,46 +23,25 @@ public class Inimigo {
 		else{
 			referencia = new ImageIcon("res\\inimigo1.gif");
 		}
-		imagem = referencia.getImage();
+		super.setImagem(referencia.getImage());
 		
-		this.largura = imagem.getHeight(null);
-		this.altura = imagem.getWidth(null);
+		super.setLargura(super.getImagem().getHeight(null)); 
+		super.setAltura(super.getImagem().getWidth(null));
 		
-		visible = true;
-	}
-	
-	public Rectangle getBounds(){// padrao de jogos, retorna um retangulo
-		return new Rectangle(x, y, largura, altura);
+		super.setVisible(true);
 	}
 	
 	public void movimenta(){
 		
-		if(this.x < 0){
-			this.x = LARGURA_TELA;
+		if(super.getX() < 0){
+			super.setX(LARGURA_TELA);
 		}
 		else{
-			this.x -= VELOCIDADE;
+			super.setX(super.getX()/*-(int)(VELOCIDADE)*/);
 		}
 	}
 	
-	public boolean isVisible() {
-		return visible;
+	public static void setVelocidade(){
+		VELOCIDADE = (float)1;
 	}
-
-	public void setVisible(boolean Visible) {
-		this.visible = Visible;
-	}
-
-	public int getX() {
-		return x;
-	}
-	
-	public int getY() {
-		return y;
-	}
-	
-	public Image getImagem() {
-		return imagem;
-	}
-	
 }

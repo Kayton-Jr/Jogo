@@ -3,6 +3,7 @@ package janelas;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import personagens.Inimigo;
 import personagens.Nave;
 
 public class TecladoAdapter extends KeyAdapter{
@@ -13,9 +14,12 @@ public class TecladoAdapter extends KeyAdapter{
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getKeyCode() == KeyEvent.VK_ENTER){
-			Fase.isEmJogo=true;
-			ContainerDeJanelas novaJanela = new ContainerDeJanelas();
-			Fase.inicializaInimigos();
+//			new Fase();
+			//new ContainerDeJanelas();
+			Fase faseNova = new Fase();
+			faseNova.setEmJogo(true);
+			faseNova.inicializaInimigos();
+			Inimigo.setVelocidade();
 		}
 		
 		nave.keyPressed(e);

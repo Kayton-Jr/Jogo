@@ -1,7 +1,5 @@
 package personagens;
 
-import java.awt.Image;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,65 +7,56 @@ import java.util.List;
 import javax.swing.ImageIcon;
 
 
-public class Nave {
+public class Nave extends PersonagemPadrao{
 
-	private int x, y;
-	private int dx, dy;
-	private int altura, largura;
-	private Image imagem;
 	private static Nave instance;
 	private List<Missil> misseis;
-	private boolean visible;
 	
-
 	public static Nave getInstance() {
 		if(instance==null)
 			instance = new Nave();
 		return instance;
 	}
 
-	private Nave(){
+	public Nave(){
+		super();
 		
 		ImageIcon referencia = new ImageIcon("res\\nave.gif");
-		setImagem(referencia.getImage());
+		super.setImagem(referencia.getImage());
 		
-		altura = imagem.getHeight(null);
-		largura = imagem.getWidth(null);
+		super.setAltura(super.getImagem().getHeight(null));
+		super.setLargura(super.getImagem().getWidth(null));
 		
 		misseis = new ArrayList<Missil>();
 		
-		this.x=100;
-		this.y=100;
+		super.setX(100);
+		super.setY(100);
 		
 	}
 	
 	public void atira(){
-		this.misseis.add(new Missil(x+largura, y+altura/2));
-	}
-	
-	public Rectangle getBounds(){// padrao de jogos, retorna um retangulo
-		return new Rectangle(x, y, largura, altura);//facilita o controle do retangulo das imagens, tratar colisoes
+		this.misseis.add(new Missil(super.getX()+super.getLargura(), super.getY()+super.getAltura()/2));
 	}
 
 	public void movimenta(){
-		System.out.println(x+","+y);
-		x += dx;//-1 a 1428
-		y += dy;//2 a 729
+		System.out.println(super.getX()+","+super.getY());
+		super.setX(super.getX()+super.getDx());;//1 a 462
+		super.setY(super.getY()+super.getDy());//1 a 340
 		//colocando os limites da tela
-		if(this.x<-1){
-			x = -1;
+		if(super.getX()<1){
+			super.setX(1);
 		}
 		
-		if(this.x>1428){
-			x = 1428;
+		if(super.getX()>462){
+			super.setX(462);
 		}
 		
-		if(this.y<2){
-			y = 2;
+		if(super.getY()<1){
+			super.setY(1);
 		}
 		
-		if(this.y>729){
-			y = 729;
+		if(super.getY()>340){
+			super.setY(340);
 		}
 	}
 	
@@ -80,19 +69,19 @@ public class Nave {
 		}
 		
 		if(codigo == KeyEvent.VK_UP){
-			dy = -1;
+			super.setDy(-1);
 		}
 		
 		if(codigo == KeyEvent.VK_DOWN){
-			dy = 1;
+			super.setDy(1);
 		}
 		
 		if(codigo == KeyEvent.VK_LEFT){
-			dx = -1;
+			super.setDx(-1);
 		}
 		
 		if(codigo == KeyEvent.VK_RIGHT){
-			dx = 1;
+			super.setDx(1);
 		}
 	}
 	
@@ -101,19 +90,19 @@ public class Nave {
 		int codigo = tecla.getKeyCode();
 		
 		if(codigo == KeyEvent.VK_UP){
-			dy = 0;
+			super.setDy(0);
 		}
 		
 		if(codigo == KeyEvent.VK_DOWN){
-			dy = 0;
+			super.setDy(0);
 		}
 		
 		if(codigo == KeyEvent.VK_LEFT){
-			dx = 0;
+			super.setDx(0);
 		}
 		
 		if(codigo == KeyEvent.VK_RIGHT){
-			dx = 0;
+			super.setDx(0);
 		}
 		
 	}
@@ -121,54 +110,4 @@ public class Nave {
 	public List<Missil> getMisseis() {
 		return misseis;
 	}
-	
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	public int getDx() {
-		return dx;
-	}
-
-	public void setDx(int dx) {
-		this.dx = dx;
-	}
-
-	public int getDy() {
-		return dy;
-	}
-
-	public void setDy(int dy) {
-		this.dy = dy;
-	}
-
-	public Image getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(Image imagem) {
-		this.imagem = imagem;
-	}
-	
-	public boolean isVisible() {
-		return visible;
-	}
-	
-	public void setVisible(boolean visible) {
-		this.visible = visible;
-	}
-	
-	
 }

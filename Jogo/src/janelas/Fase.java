@@ -23,13 +23,17 @@ public class Fase extends JPanel implements ActionListener{
 	private Image fundo;
 	private Nave nave = Nave.getInstance();
 	private Timer timer;
-	private boolean emJogo;
+	private static boolean emJogo;
 	
-	public boolean isEmJogo() {
+	public static boolean isEmJogo() {
 		return emJogo;
 	}
+	
+	public void setEmJogo(boolean boleano){
+		emJogo = boleano;
+	}
 
-	private static List<Inimigo> inimigos;
+	private static List<Inimigo> inimigos = null;
 	
 	private static int[][] coordenadas = { { 2380, 29 }, { 2600, 59 }, { 1380, 89 },
 			{ 780, 109 }, { 580, 139 }, { 880, 239 }, { 790, 259 }, { 760, 50 },
@@ -41,7 +45,6 @@ public class Fase extends JPanel implements ActionListener{
 	public static boolean isEmJogo;
 	
 	public Fase(){
-		
 		setDoubleBuffered(true);//remover possiveis erros ou coisas do tipo entre passagens de tela
 		setFocusable(true);//seta o focu para a tela
 		addKeyListener(new TecladoAdapter());//pegar o evento e realizar uma açao para ela
@@ -98,7 +101,7 @@ public class Fase extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {//metodo das acoes
 		// TODO Auto-generated method stub
 		
-		if(inimigos.size() == 0){
+		if(inimigos.isEmpty()){
 			emJogo = false;
 		}
 		
@@ -133,7 +136,7 @@ public class Fase extends JPanel implements ActionListener{
 		repaint();//repintar a tela
 	}
 	
-	public static void inicializaInimigos(){
+	public void inicializaInimigos(){
 		
 		inimigos = new ArrayList<Inimigo>();
 		
