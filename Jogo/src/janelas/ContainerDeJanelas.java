@@ -15,6 +15,7 @@ public class ContainerDeJanelas extends JFrame{
 	
 	public ContainerDeJanelas(){
 		
+		
 		JMenuBar barraMenu = new JMenuBar();
 		
 		JMenu menu = new JMenu("Menu");

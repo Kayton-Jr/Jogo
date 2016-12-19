@@ -106,7 +106,6 @@ public class Fase extends JPanel implements ActionListener{
 		if(inimigos.isEmpty()){
 			emJogo = false;
 			passaDeFase = true;
-			fase++;
 		}
 		
 		List<Missil> misseis = nave.getMisseis();
@@ -204,6 +203,10 @@ public class Fase extends JPanel implements ActionListener{
 				if(passaDeFase){
 					Inimigo.aumentaVelocidade();
 					passaDeFase = false;
+					fase++;
+				}
+				if(!inimigos.isEmpty()){
+					score=0;
 				}
 				inicializaInimigos();
 			}
