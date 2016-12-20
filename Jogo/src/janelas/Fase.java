@@ -90,7 +90,13 @@ public class Fase extends JPanel implements ActionListener{
 
 		}
 		else{
-			ImageIcon fimJogo = new ImageIcon("res\\game_over.jpg");
+			ImageIcon fimJogo;
+			if(inimigos.isEmpty()){
+				fimJogo = new ImageIcon("res\\proxFase.jpg");
+			}
+			else{
+				fimJogo = new ImageIcon("res\\game_over.jpg");
+			}			
 			
 			graficos.drawImage(fimJogo.getImage(), 0, 0, null);
 			graficos.setColor(Color.white);
@@ -99,7 +105,7 @@ public class Fase extends JPanel implements ActionListener{
 		g.dispose();// limpa a tela para a proxima pintura
 	}
 
-	@Override
+	@Override       
 	public void actionPerformed(ActionEvent e) {//metodo das acoes
 		// TODO Auto-generated method stub
 		
