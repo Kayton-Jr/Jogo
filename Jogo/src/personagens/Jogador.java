@@ -6,7 +6,7 @@ public class Jogador {
 	private String score;
 	private static Jogador instance;
 	
-	private Jogador(){
+	public Jogador(){
 		
 	}
 

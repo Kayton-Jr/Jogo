@@ -9,14 +9,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import personagens.Inimigo;
+import personagens.Jogador;
 import personagens.Missil;
 import personagens.Nave;
 
@@ -29,6 +37,8 @@ public class Fase extends JPanel implements ActionListener{
 	private boolean passaDeFase = false;
 	private int fase=1;
 	private int score;
+	private String salvaPont;
+	private String nome = Jogador.getInstance().getNome();
 
 	private static List<Inimigo> inimigos = null;
 	
@@ -96,6 +106,10 @@ public class Fase extends JPanel implements ActionListener{
 			}
 			else{
 				fimJogo = new ImageIcon("res\\game_over.jpg");
+				salvaPont = JOptionPane.showInputDialog(null, "Deseja salvar sua pontuação?\nSim ou Nao");
+				if("sim".equalsIgnoreCase(salvaPont)){
+					salvarPontuacao(score, nome);
+				}
 			}			
 			
 			graficos.drawImage(fimJogo.getImage(), 0, 0, null);
@@ -195,10 +209,6 @@ public class Fase extends JPanel implements ActionListener{
 		}
 	}
 	
-	public int getScore() {
-		return score;
-	}
-
 	private class TecladoAdapter extends KeyAdapter {//classe interna: só serve para esse contexto de fase e precisa acessar os atributos dela
 
 		@Override
@@ -225,6 +235,25 @@ public class Fase extends JPanel implements ActionListener{
 			nave.keyReleased(e);
 		}
 
+	}
+	
+	public void salvarPontuacao(int score, String nome){
+		
+		try {
+			InputStream is = new FileInputStream("res\\Placar.txt");
+			InputStreamReader isr = new InputStreamReader(is);
+			BufferedReader br = new BufferedReader(isr);
+			
+			String b = br.readLine();
+			
+			while(b!=null){
+				String[] temp = new String[100];
+				temp = b.split("******");
+			}
+		} catch (IOException e) {
+			System.out.println("Erro ao acessar arquivo");
+		}
+		
 	}
 
 
