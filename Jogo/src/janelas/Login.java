@@ -18,8 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
+import exception.ValidationException;
 import personagens.Jogador;
-import Exception.ValidationException;
 
 public class Login extends JFrame{
 	
@@ -37,10 +37,6 @@ public class Login extends JFrame{
 		setLocationRelativeTo(null);//define quando ira abrir a janela quando clicar ou passar em outro componente
 		setResizable(false);//define se a tela pode ser ajustada o tamanho
 		setVisible(true);//define a aparicaçao da janela
-	}
-	
-	public String getIniciarJogo() {
-		return iniciarJogo;
 	}
 
 	public void criarFomulario(){
@@ -87,7 +83,7 @@ public class Login extends JFrame{
 							dispose();
 							new Jogo();
 						}
-						}
+					}
 				}
 				catch(ValidationException ex){
 					JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);

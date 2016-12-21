@@ -3,7 +3,7 @@ package personagens;
 public class Jogador {
 
 	private String nome;
-	private String score;
+	private int score;
 	private static Jogador instance;
 	
 	public Jogador(){
@@ -18,11 +18,11 @@ public class Jogador {
 		this.nome = nome;
 	}
 
-	public String getScore() {
+	public int getScore() {
 		return score;
 	}
 
-	public void setScore(String score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 	
