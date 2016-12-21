@@ -3,7 +3,7 @@ package personagens;
 import java.awt.Image;
 import java.awt.Rectangle;
 
-public class PersonagemPadrao {
+public abstract class PersonagemPadrao {
 	
 	private int x, y;
 	private int dx, dy;

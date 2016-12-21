@@ -13,9 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
-import exception.ValidationException;
 import personagens.Jogador;
 
 public class GameOver extends JFrame{

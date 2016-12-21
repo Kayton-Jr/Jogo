@@ -17,7 +17,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import janelas.Fase.TecladoAdapter;
 import personagens.Inimigo;
 import personagens.Jogador;
 import personagens.Missil;
