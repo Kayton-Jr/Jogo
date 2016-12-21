@@ -204,6 +204,7 @@ public class Fase extends JPanel implements ActionListener{
 	public void finalizaTela(){
 		
 		if(!inimigos.isEmpty()){
+			Inimigo.resetaVelocidade();
 			setVisible(false);
 			jogador.setScore(score);
 			timer.stop();

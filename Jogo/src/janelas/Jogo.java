@@ -215,6 +215,7 @@ public class Jogo extends JFrame{
 		public void finalizaTela(){
 			
 			if(!inimigos.isEmpty()){
+				Inimigo.resetaVelocidade();
 				dispose();
 				jogador.setScore(score);
 				timer.stop();

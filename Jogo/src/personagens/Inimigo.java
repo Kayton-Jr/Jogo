@@ -37,14 +37,15 @@ public class Inimigo extends PersonagemPadrao{
 			super.setX(LARGURA_TELA);
 		}
 		else{
-			System.out.println("antes"+super.getX());
 			super.setX(super.getX()-(VELOCIDADE));
-			System.out.println("dps"+super.getX());
-			System.out.println("velocidade"+VELOCIDADE);
 		}
 	}
 	
 	public static void aumentaVelocidade(){
 		VELOCIDADE++;
+	}
+	
+	public static void resetaVelocidade(){
+		VELOCIDADE = 1;
 	}
 }
