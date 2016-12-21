@@ -62,7 +62,7 @@ public class Jogo extends JFrame{
 			setDoubleBuffered(true);//remover possiveis erros ou coisas do tipo entre passagens de tela
 			setFocusable(true);//seta o focu para a tela
 			addKeyListener(new TecladoAdapter());//pegar o evento e realizar uma açao para ela
-			ImageIcon referencia = new ImageIcon("res\\fundo(3).jpg");
+			ImageIcon referencia = new ImageIcon("res\\fundo.jpg");
 			fundo = referencia.getImage();
 			
 			score=0;

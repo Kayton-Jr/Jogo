@@ -14,7 +14,7 @@ public class Missil extends PersonagemPadrao{
 		super.setX(x);
 		super.setY(y);
 		
-		ImageIcon referencia = new ImageIcon("res\\missel(2).png");
+		ImageIcon referencia = new ImageIcon("res\\missel.png");
 		super.setImagem(referencia.getImage());
 		
 		super.setLargura(super.getImagem().getWidth(null));    
