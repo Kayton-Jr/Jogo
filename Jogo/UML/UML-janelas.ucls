@@ -2,16 +2,7 @@
 <class-diagram version="1.1.13" icons="true" automaticImage="JPEG" always-add-relationships="false" 
   generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
   router="FAN">  
-  <class id="1" language="java" name="janelas.Fase.TecladoAdapter" project="Jogo" file="/Jogo/src/janelas/Fase.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="165" x="41" y="464"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="janelas.GravaPontos" project="Jogo" file="/Jogo/src/janelas/GravaPontos.java" 
+  <class id="1" language="java" name="janelas.GravaPontos" project="Jogo" file="/Jogo/src/janelas/GravaPontos.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="189" width="140" x="548" y="464"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -20,7 +11,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="janelas.Jogo" project="Jogo" file="/Jogo/src/janelas/Jogo.java" binary="false" 
+  <class id="2" language="java" name="janelas.Jogo" project="Jogo" file="/Jogo/src/janelas/Jogo.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="81" width="87" x="275" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -29,16 +20,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="janelas.Fase" project="Jogo" file="/Jogo/src/janelas/Fase.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="387" width="194" x="41" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="janelas.Jogo.Fase.TecladoAdapter" project="Jogo" 
+  <class id="3" language="java" name="janelas.Jogo.Fase.TecladoAdapter" project="Jogo" 
     file="/Jogo/src/janelas/Jogo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="165" x="275" y="873"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -47,7 +29,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="janelas.Jogo.Fase" project="Jogo" file="/Jogo/src/janelas/Jogo.java" 
+  <class id="4" language="java" name="janelas.Jogo.Fase" project="Jogo" file="/Jogo/src/janelas/Jogo.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="369" width="194" x="275" y="464"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -56,7 +38,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="janelas.Login" project="Jogo" file="/Jogo/src/janelas/Login.java" binary="false" 
+  <class id="5" language="java" name="janelas.Login" project="Jogo" file="/Jogo/src/janelas/Login.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="171" width="127" x="402" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -65,7 +47,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="janelas.GameOver" project="Jogo" file="/Jogo/src/janelas/GameOver.java" 
+  <class id="6" language="java" name="janelas.GameOver" project="Jogo" file="/Jogo/src/janelas/GameOver.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="153" width="119" x="569" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -74,29 +56,25 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="9">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="10" name="gravar">        
+  <association id="7">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="8" name="gravar">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="11" minimum="0" maximum="1">        
+      <multiplicity id="9" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="12">    
+  <nesting id="10">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="1"/>  
+    <end type="TARGET" refId="3"/>  
   </nesting>  
-  <nesting id="13">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="6"/>  
-  </nesting>  
-  <nesting id="14">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="5"/>  
+  <nesting id="11">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
   </nesting>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

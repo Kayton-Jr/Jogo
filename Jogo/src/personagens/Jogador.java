@@ -2,7 +2,7 @@ package personagens;
 
 public class Jogador {
 
-	private String nome;
+	private String nome;  //PARA SETAR O USUARIO 
 	private int score;
 	private static Jogador instance;
 	

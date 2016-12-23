@@ -216,6 +216,7 @@ public class Jogo extends JFrame{
 			
 			if(!inimigos.isEmpty()){
 				Inimigo.resetaVelocidade();
+				Nave.resetNave();
 				dispose();
 				jogador.setScore(score);
 				timer.stop();

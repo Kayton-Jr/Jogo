@@ -1,6 +1,6 @@
 package personagens;
 
-import java.awt.event.KeyEvent;
+import java.awt.event.KeyEvent; 
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,14 +40,14 @@ public class Nave extends PersonagemPadrao{
 
 	public void movimenta(){
 		//System.out.println(super.getX()+","+super.getY());
-		super.setX(super.getX()+super.getDx());;//1 a 462
-		super.setY(super.getY()+super.getDy());//1 a 340
+		super.setX(super.getX()+super.getDx());;//1 a 462  // VARIAÇÃO DOS MOVIMENTOS EM X
+		super.setY(super.getY()+super.getDy());//1 a 340   // VARIAÇÃO DOS MOVIMENTOS EM Y
 		//colocando os limites da tela
 		if(super.getX()<1){
 			super.setX(1);
 		}
 		
-		if(super.getX()>462){
+		if(super.getX()>462){ // LIMITANDO A MOVIMENTAÇÃO DA NAVE NA HORIZONTAL
 			super.setX(462);
 		}
 		
@@ -55,33 +55,33 @@ public class Nave extends PersonagemPadrao{
 			super.setY(1);
 		}
 		
-		if(super.getY()>340){
+		if(super.getY()>340){ // LIMITANDO A MOVIMENTAÇÃO DA NAVE NA VERTICAL
 			super.setY(340);
 		}
 	}
 	
-	public void keyPressed(KeyEvent tecla){
+	public void keyPressed(KeyEvent tecla){ // MOVIMENTAÇÃO PELO TECLADO
 		
-		int codigo = tecla.getKeyCode();
+		int codigo = tecla.getKeyCode();  // VALORES DE CADA TECLA 
 		
 		if(codigo == KeyEvent.VK_SPACE){
 			atira();
 		}
 		
-		if(codigo == KeyEvent.VK_UP){
-			super.setDy(-1);
+		if(codigo == KeyEvent.VK_UP){ 
+			super.setDy(-2);  // MOVIMENTAÇÃO EM PIXEL 
 		}
 		
 		if(codigo == KeyEvent.VK_DOWN){
-			super.setDy(1);
+			super.setDy(2);
 		}
 		
 		if(codigo == KeyEvent.VK_LEFT){
-			super.setDx(-1);
+			super.setDx(-2);
 		}
 		
 		if(codigo == KeyEvent.VK_RIGHT){
-			super.setDx(1);
+			super.setDx(2);
 		}
 	}
 	
@@ -109,5 +109,9 @@ public class Nave extends PersonagemPadrao{
 
 	public List<Missil> getMisseis() {
 		return misseis;
+	}
+	
+	public static void resetNave(){
+		instance = null;
 	}
 }
