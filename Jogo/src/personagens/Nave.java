@@ -69,19 +69,19 @@ public class Nave extends PersonagemPadrao{
 		}
 		
 		if(codigo == KeyEvent.VK_UP){ 
-			super.setDy(-2);  // MOVIMENTAÇÃO EM PIXEL 
+			super.setDy(-1);  // MOVIMENTAÇÃO EM PIXEL 
 		}
 		
 		if(codigo == KeyEvent.VK_DOWN){
-			super.setDy(2);
+			super.setDy(1);
 		}
 		
 		if(codigo == KeyEvent.VK_LEFT){
-			super.setDx(-2);
+			super.setDx(-1);
 		}
 		
 		if(codigo == KeyEvent.VK_RIGHT){
-			super.setDx(2);
+			super.setDx(1);
 		}
 	}
 	

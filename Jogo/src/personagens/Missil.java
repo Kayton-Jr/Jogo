@@ -6,7 +6,7 @@ public class Missil extends PersonagemPadrao{
 	
 
 	private static final int LARGURA_TELA = 1500; //SETA A LARGURA FIXA DA TELA
-	private static final int VELOCIDADE = 3;//velocidade do missil em pixels
+	private static final int VELOCIDADE = 2;//velocidade do missil em pixels
 	
 	public Missil(int x, int y){
 		super();
